@@ -1,37 +1,24 @@
-from aiogram import Bot, Dispatcher, executor, types
-import logging
-import asyncio
+# from aiogram import Bot, Dispatcher, executor, types
+# import logging
+# import asyncio
 
-bot = Bot(token='6762569300:AAGnU6WOqeoxfrcVxXOHbQooC3Gg2YkuN58')
-dp = Dispatcher(bot)
-# async def send_hello():
-#     # Replace chat_id with the actual chat_id of the channel
-#     chat_id = '-1002044150371'
-#     await bot.send_message(chat_id=chat_id, text='Hello, World!')
-
-# async def main():
-#     await send_hello()
-#     # other asynchronous operations here
+# bot = Bot(token='6762569300:AAGnU6WOqeoxfrcVxXOHbQooC3Gg2YkuN58')
+# dp = Dispatcher(bot)
+ 
+# user_inputs = {}
+# data = {}
+# logging.basicConfig(level=logging.INFO)
 
 
-# if __name__ == '__main__':
-#     loop = asyncio.get_event_loop()
-#     loop.run_until_complete(main())
-# Dictionary to store user inputs
-user_inputs = {}
-data = {}
-logging.basicConfig(level=logging.INFO)
-
-
-@dp.message_handler(lambda message: message.text)
-async def start(message: types.Message):
-    # keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
-    # insert_image_button = types.KeyboardButton("Insert Image 📷")
-    # insert_name_button = types.KeyboardButton("Insert Name 📝")
-    # insert_code_button = types.KeyboardButton("Insert Code 🔢")
-    # send_post_button = types.KeyboardButton("Send Post 📮")
-    # keyboard.add(insert_image_button, insert_name_button, insert_code_button, send_post_button)
-    await message.reply(f"Welcome to the product insertion bot! +{message.text}")
+# @dp.message_handler(lambda message: message.text)
+# async def start(message: types.Message):
+#     # keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+#     # insert_image_button = types.KeyboardButton("Insert Image 📷")
+#     # insert_name_button = types.KeyboardButton("Insert Name 📝")
+#     # insert_code_button = types.KeyboardButton("Insert Code 🔢")
+#     # send_post_button = types.KeyboardButton("Send Post 📮")
+#     # keyboard.add(insert_image_button, insert_name_button, insert_code_button, send_post_button)
+#     await message.reply(f"Welcome to the product insertion bot! +{message.text}")
 
 
 # # Handler for inserting image
@@ -130,5 +117,5 @@ async def start(message: types.Message):
 
 
 
-executor.start_polling(dp)
+# executor.start_polling(dp)
 
