@@ -1,34 +1,20 @@
-import logging
-import logging.handlers
-import os
+import asyncio
+from aiogram import Bot, Dispatcher, executor, types
 
-import requests
+API_TOKEN = '6762569300:AAGnU6WOqeoxfrcVxXOHbQooC3Gg2YkuN58'
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-logger_file_handler = logging.handlers.RotatingFileHandler(
-    "status.log",
-    maxBytes=1024 * 1024,
-    backupCount=1,
-    encoding="utf8",
-)
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-logger_file_handler.setFormatter(formatter)
-logger.addHandler(logger_file_handler)
+bot = Bot(token=API_TOKEN)
+dp = Dispatcher(bot)
 
-try:
-    SOME_SECRET = os.environ["SOME_SECRET"]
-except KeyError:
-    SOME_SECRET = "Token not available!"
-    #logger.info("Token not available!")
-    #raise
+async def send_hello():
+    # Replace chat_id with the actual chat_id of the channel
+    chat_id = '-1002044150371'
+    await bot.send_message(chat_id=chat_id, text='Hello, World!')
 
+async def main():
+    await send_hello()
+    # other asynchronous operations here
 
-if __name__ == "__main__":
-    logger.info(f"Token value: {SOME_SECRET}")
-
-    r = requests.get('https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE')
-    if r.status_code == 200:
-        data = r.json()
-        temperature = data["forecast"]["temp"]
-        logger.info(f'Weather in Berlin: {temperature}')
+if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
